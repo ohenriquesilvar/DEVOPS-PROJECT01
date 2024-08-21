@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-express-deployment
+  labels:
+    app: backend-express
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-express
+  template:
+    metadata:
+      labels:
+        app: backend-express
+    spec:
+      containers:
+      - name: backend-express
+        image: ohenriquerabelo/todo_back:v2
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          value: "meu-postgres-postgresql.default.svc.cluster.local"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_NAME
+          value: "todo_list_db"
+        - name: DB_USER
+          value: "root"
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: DB_PASSWORD
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-express-service
+spec:
+  type: ClusterIP
+  selector:
+    app: backend-express
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
