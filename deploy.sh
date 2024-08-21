@@ -20,7 +20,7 @@ cd frontend-helm || { echo "Failed to cd to frontend-helm"; exit 1; }
 helm install frontend . -f values.yaml
 
 # Aguarda 5 segundos
-echo "Aguardando 5 segundos para garantir que os serviços estejam prontos..."
+echo "Aguardando 10 segundos para garantir que os serviços estejam prontos..."
 sleep 10
 
 # Inicia o port-forwarding
