@@ -41,7 +41,7 @@ Este script realiza as seguintes ações:
    Após a execução do script, abra um navegador e acesse `http://localhost:3000` para visualizar o frontend.
 
 4. **Deletar os Serviços:**
-   Para deletar os serviços, execute o comando `helm uninstall` para cada serviço Helm instalado. Por exemplo:
+   Para deletar os serviços, execute o comando a seguir:
 
    ```sh
       chmod +x clean.sh && ./clean.sh
