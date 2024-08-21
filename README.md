@@ -40,6 +40,13 @@ Este script realiza as seguintes ações:
 3. **Acesse o Frontend:**
    Após a execução do script, abra um navegador e acesse `http://localhost:3000` para visualizar o frontend.
 
+4. **Deletar os Serviços:**
+   Para deletar os serviços, execute o comando `helm uninstall` para cada serviço Helm instalado. Por exemplo:
+
+   ```sh
+      chmod +x clean.sh && ./clean.sh
+   ```
+
 ## Explicação do Uso do Port-Forwarding
 
 Problema com NodePort: A configuração do NodePort não estava permitindo o acesso externo ao serviço do frontend como esperado.

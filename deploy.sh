@@ -23,6 +23,8 @@ helm install frontend . -f values.yaml
 echo "Aguardando 10 segundos para garantir que os serviços estejam prontos..."
 sleep 10
 
+echo "Port-forwarding do frontend iniciado. Acesse http://localhost:3000 para visualizar o frontend."
+
 # Inicia o port-forwarding
 kubectl port-forward --namespace default svc/frontend-frontend-helm 3000:3000
 
